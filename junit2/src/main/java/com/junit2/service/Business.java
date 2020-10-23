@@ -1,5 +1,8 @@
 package com.junit2.service;
 
+import java.util.Arrays;
+import java.util.OptionalInt;
+
 import com.junit2.api.SomeDataService;
 
 public class Business {
@@ -11,11 +14,7 @@ public class Business {
 	}
 
 	public int calcuateSum(int[] data) {
-		int sum = 0;
-		for (int value : data) {
-			sum += value;
-		}
-		return sum;
+		return Arrays.stream(data).reduce(Integer::sum).orElse(0);
 	}
 	
 	public int calcuateSumUsingDataService() {
